@@ -4,7 +4,7 @@ void main() {
   List<List<String>> theaterSeats =
       List.generate(5, (rows) => List.generate(5, (columns) => 'E'));
 
-  Map<String, Map<String, String>> bookings = {}; // تخزين بيانات الحجز
+  Map<String, Map<String, String>> bookings = {};
 
   String theaterEmoji = "\u{1F3AD}";
 
