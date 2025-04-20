@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:to_do_app/utils/app_assets.dart';
+
+import '../../../utils/app_colors.dart';
 
 class AuthLogo extends StatelessWidget {
   const AuthLogo({super.key});
@@ -16,12 +19,12 @@ class AuthLogo extends StatelessWidget {
         ),
         border: Border(
           bottom: BorderSide(
-            color: Colors.grey,
+            color: AppColors.grey,
             width: 1,
           ),
         ),
         image: DecorationImage(
-          image: AssetImage("assets/images/palastine.png"),
+          image: AssetImage(AppAssets.logo),
           fit: BoxFit.fill,
         ),
       ),

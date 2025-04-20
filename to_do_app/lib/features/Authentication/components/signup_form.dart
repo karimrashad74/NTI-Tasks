@@ -1,8 +1,14 @@
+// import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:to_do_app/features/Authentication/components/auth_text_link.dart';
 import 'package:to_do_app/features/Authentication/components/input_form_field.dart';
 import 'package:to_do_app/features/Authentication/components/pass_field.dart';
 import 'package:to_do_app/features/Authentication/components/primary_button.dart';
+import 'package:to_do_app/utils/app_routes.dart';
+
+import '../../../utils/app_assets.dart';
+import '../../../utils/app_text.dart';
 
 class SignupForm extends StatefulWidget {
   const SignupForm({super.key});
@@ -12,34 +18,48 @@ class SignupForm extends StatefulWidget {
 }
 
 class _SignupFormState extends State<SignupForm> {
+  bool isChecked = true;
+
   @override
   Widget build(BuildContext context) {
     return Form(
       child: Column(
         children: [
           InputFormField(
-            startIcon: Icon(Icons.person_outline_rounded),
-            hintText: "Username",
+            startIcon: SvgPicture.asset(AppAssets.profile),
+            hintText: AppText.userName,
           ),
           PassField(
-            startIcon: Icon(Icons.key_rounded),
-            hintText: "Enter Password",
-            endIcon: Icon(Icons.lock_outline_rounded),
-            endIconSwitch: Icon(Icons.lock_open_rounded),
+            startIcon: SvgPicture.asset(AppAssets.password),
+            hintText: AppText.password,
+            endIcon: SvgPicture.asset(AppAssets.lock),
+            endIconSwitch: SvgPicture.asset(AppAssets.unLock),
           ),
           PassField(
-            startIcon: Icon(Icons.key_rounded),
-            hintText: "Confirm Password",
-            endIcon: Icon(Icons.lock_outline_rounded),
-            endIconSwitch: Icon(Icons.lock_open_rounded),
+            startIcon: SvgPicture.asset(AppAssets.password),
+            hintText: AppText.confirmPassword,
+            endIcon: SvgPicture.asset(AppAssets.lock),
+            endIconSwitch: SvgPicture.asset(AppAssets.unLock),
           ),
-          PrimaryButton(text: "Login"),
-          SizedBox(height: 50),
+
+          // DropdownButtonFormField(items: [
+          //   DropdownMenuItem(
+          //     child: Text('Male'),
+          //     value: 0,
+          //   ),
+          //   DropdownMenuItem(
+          //     child: Text('Female'),
+          //     value: 1,
+          //   ),
+          // ], onChanged: (value) {}),
+
+          PrimaryButton(text: AppText.signUp),
+          // SizedBox(height: 10),
           AuthTextLink(
-            firstText: "Already Have An Account?",
-            secondText: "Login",
+            firstText: AppText.alreadyHaveAccount,
+            secondText: AppText.login,
             onTap: () {
-              Navigator.pushNamed(context, "/");
+              Navigator.pushNamed(context, AppRoutes.login);
             },
           ),
         ],

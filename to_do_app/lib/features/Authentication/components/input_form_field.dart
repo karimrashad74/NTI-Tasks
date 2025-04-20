@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:to_do_app/utils/app_colors.dart';
+import 'package:to_do_app/utils/app_constants.dart';
 
 class InputFormField extends StatefulWidget {
   final Widget? startIcon;
@@ -38,28 +40,30 @@ Widget decorationInputField({
     width: MediaQuery.of(context).size.width * 0.88,
     child: TextFormField(
       style: const TextStyle(
-        color: Colors.black,
+        color: AppColors.black,
         fontSize: 16,
+        fontFamily: AppConstants.fontFamily,
         fontWeight: FontWeight.w400,
       ),
       obscureText: obscureText,
-      cursorColor: const Color.fromARGB(255, 20, 153, 84),
+      cursorColor: AppColors.primary,
       decoration: InputDecoration(
         filled: true,
-        fillColor: Colors.white,
+        fillColor: AppColors.white,
         prefixIcon: startIcon,
         hintText: hintText,
         hintStyle: const TextStyle(
-          color: Colors.grey,
+          color: AppColors.grey,
           fontSize: 14,
+          fontFamily: AppConstants.fontFamily,
           fontWeight: FontWeight.w200,
         ),
         suffixIcon: suffixIcon != null
             ? IconButton(onPressed: onSuffixIconPressed, icon: suffixIcon)
             : null,
-        border: decorationBorder(const Color.fromARGB(255, 205, 205, 205)),
-        focusedBorder: decorationBorder(const Color.fromARGB(255, 20, 153, 84)),
-        errorBorder: decorationBorder(Colors.red),
+        border: decorationBorder(AppColors.lightGrey),
+        focusedBorder: decorationBorder(AppColors.primary),
+        errorBorder: decorationBorder(AppColors.errorColor),
       ),
     ),
   );

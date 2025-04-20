@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:to_do_app/utils/app_colors.dart';
+import 'package:to_do_app/utils/app_constants.dart';
 
 class PrimaryButton extends StatefulWidget {
   final String? text;
@@ -17,14 +19,15 @@ class _PrimaryButtonState extends State<PrimaryButton> {
       child: Text(
         "${widget.text}",
         style: const TextStyle(
-          color: Colors.white,
+          color: AppColors.white,
           fontSize: 19,
+          fontFamily: AppConstants.fontFamily,
           fontWeight: FontWeight.w300,
         ),
       ),
       style: ElevatedButton.styleFrom(
-        backgroundColor: Color.fromARGB(255, 20, 153, 84),
-        shadowColor: const Color.fromARGB(255, 20, 153, 84),
+        backgroundColor: AppColors.primary,
+        shadowColor: AppColors.primary,
         elevation: 15,
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(14),

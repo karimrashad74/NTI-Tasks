@@ -3,8 +3,8 @@ import 'package:to_do_app/features/Authentication/components/input_form_field.da
 
 class PassField extends StatefulWidget {
   final Widget? startIcon;
-  final Icon endIcon;
-  final Icon endIconSwitch;
+  final Widget endIcon;
+  final Widget endIconSwitch;
   final String? hintText;
 
   const PassField({
@@ -29,8 +29,7 @@ class _PassFieldState extends State<PassField> {
       startIcon: widget.startIcon!,
       hintText: widget.hintText!,
       obscureText: _obscure,
-      suffixIcon:
-          Icon(_obscure ? widget.endIcon.icon : widget.endIconSwitch.icon),
+      suffixIcon: _obscure ? widget.endIcon : widget.endIconSwitch,
       onSuffixIconPressed: () {
         setState(() {
           _obscure = !_obscure;
