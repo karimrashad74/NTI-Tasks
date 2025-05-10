@@ -1,0 +1,2 @@
+D:/NTI Mobile/Session 1/theater_booking_system/to_do_app/android/app/.cxx/Debug/53431633/x86/CMakeFiles/edit_cache.dir
+D:/NTI Mobile/Session 1/theater_booking_system/to_do_app/android/app/.cxx/Debug/53431633/x86/CMakeFiles/rebuild_cache.dir

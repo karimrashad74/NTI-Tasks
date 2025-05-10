@@ -2,27 +2,29 @@ import 'package:flutter/material.dart';
 import 'package:to_do_app/core/utils/app_colors.dart';
 import 'package:to_do_app/core/utils/app_constants.dart';
 
-class InputFormField extends StatefulWidget {
+class InputFormField extends StatelessWidget {
   final Widget? startIcon;
   final String? hintText;
+  final TextEditingController controller;
+  final FormFieldValidator<String>? validator;
 
   const InputFormField({
     super.key,
     required this.startIcon,
     required this.hintText,
+    required this.controller,
+    this.validator,
   });
 
   @override
-  State<InputFormField> createState() => _InputFormFieldState();
-}
-
-class _InputFormFieldState extends State<InputFormField> {
-  @override
   Widget build(BuildContext context) {
     return decorationInputField(
-        context: context,
-        startIcon: widget.startIcon!,
-        hintText: widget.hintText!);
+      context: context,
+      controller: controller,
+      validator: validator,
+      startIcon: startIcon!,
+      hintText: hintText!,
+    );
   }
 }
 
@@ -30,6 +32,8 @@ Widget decorationInputField({
   required BuildContext context,
   required Widget startIcon,
   required String hintText,
+  required TextEditingController controller,
+  FormFieldValidator<String>? validator,
   bool obscureText = false,
   Widget? suffixIcon,
   VoidCallback? onSuffixIconPressed,
@@ -39,6 +43,8 @@ Widget decorationInputField({
     height: MediaQuery.of(context).size.height * 0.0775,
     width: MediaQuery.of(context).size.width * 0.88,
     child: TextFormField(
+      controller: controller,
+      validator: validator,
       style: const TextStyle(
         color: AppColors.black,
         fontSize: 16,

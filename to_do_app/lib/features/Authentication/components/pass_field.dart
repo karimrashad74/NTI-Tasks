@@ -1,11 +1,16 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:to_do_app/features/Authentication/components/input_form_field.dart';
 
-class PassField extends StatefulWidget {
+import '../view_model/password_cubit/password_cubit.dart';
+
+class PassField extends StatelessWidget {
   final Widget? startIcon;
   final Widget endIcon;
   final Widget endIconSwitch;
   final String? hintText;
+  final TextEditingController controller;
+  final FormFieldValidator<String>? validator;
 
   const PassField({
     super.key,
@@ -13,27 +18,26 @@ class PassField extends StatefulWidget {
     required this.hintText,
     required this.endIcon,
     required this.endIconSwitch,
+    required this.controller,
+    this.validator,
   });
 
   @override
-  State<PassField> createState() => _PassFieldState();
-}
-
-class _PassFieldState extends State<PassField> {
-  bool _obscure = true;
-
-  @override
   Widget build(BuildContext context) {
-    return decorationInputField(
-      context: context,
-      startIcon: widget.startIcon!,
-      hintText: widget.hintText!,
-      obscureText: _obscure,
-      suffixIcon: _obscure ? widget.endIcon : widget.endIconSwitch,
-      onSuffixIconPressed: () {
-        setState(() {
-          _obscure = !_obscure;
-        });
+    return BlocBuilder<PasswordCubit, bool>(
+      builder: (context, obscure) {
+        return decorationInputField(
+          context: context,
+          controller: controller,
+          validator: validator,
+          startIcon: startIcon!,
+          hintText: hintText!,
+          obscureText: obscure,
+          suffixIcon: obscure ? endIcon : endIconSwitch,
+          onSuffixIconPressed: () {
+            context.read<PasswordCubit>().togglePasswordVisibility();
+          },
+        );
       },
     );
   }

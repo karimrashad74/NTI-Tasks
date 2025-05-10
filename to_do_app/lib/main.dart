@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:to_do_app/features/Authentication/views/login_screen.dart';
-import 'package:to_do_app/features/Authentication/views/signup_screen.dart';
-import 'package:to_do_app/features/splash_screen/splash_screen.dart';
-import 'package:to_do_app/features/start_screen/start_screen.dart';
-import 'package:to_do_app/features/home/views/home_screen.dart';
+import 'package:to_do_app/features/Authentication/views/login_view.dart';
+import 'package:to_do_app/features/Authentication/views/signup_view.dart';
+import 'package:to_do_app/features/splash_screen/view/splash_view.dart';
+import 'package:to_do_app/features/start_screen/view/start_view.dart';
+import 'package:to_do_app/features/home/views/home_view.dart';
 import 'package:to_do_app/core/utils/app_routes.dart';
 
 void main() {
@@ -20,11 +20,11 @@ class MainApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       initialRoute: AppRoutes.splachScreen,
       routes: {
-        AppRoutes.splachScreen: (context) => const SplashScreen(),
-        AppRoutes.startScreen: (context) => const StartScreen(),
-        AppRoutes.login: (context) => LoginScreen(),
-        AppRoutes.signUp: (context) => SignupScreen(),
-        AppRoutes.home: (context) => HomeScreen(),
+        AppRoutes.splachScreen: (context) => const SplashView(),
+        AppRoutes.startScreen: (context) => const StartView(),
+        AppRoutes.login: (context) => LoginView(),
+        AppRoutes.signUp: (context) => SignupView(),
+        AppRoutes.home: (context) => HomeView(),
       },
     );
   }
