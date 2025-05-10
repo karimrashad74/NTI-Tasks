@@ -5,11 +5,11 @@ import 'package:flutter_svg/svg.dart';
 import '../../../core/localisation/app_strings.dart';
 import '../../../core/utils/app_assets.dart';
 import '../../../core/utils/app_routes.dart';
+import '../../../core/widgets/primary_button.dart';
 import '../view_model/password_cubit/password_cubit.dart';
 import 'auth_text_link.dart';
 import 'input_form_field.dart';
 import 'pass_field.dart';
-import 'primary_button.dart';
 
 class SignupForm extends StatelessWidget {
   const SignupForm({super.key});

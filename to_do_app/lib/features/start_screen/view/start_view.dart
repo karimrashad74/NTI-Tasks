@@ -5,7 +5,7 @@ import 'package:to_do_app/core/utils/app_assets.dart';
 import 'package:to_do_app/core/utils/app_colors.dart';
 import 'package:to_do_app/core/utils/app_constants.dart';
 import 'package:to_do_app/core/utils/app_routes.dart';
-import 'package:to_do_app/features/Authentication/components/primary_button.dart';
+import 'package:to_do_app/core/widgets/primary_button.dart';
 
 import '../../../config/cache/cache_helper.dart';
 
