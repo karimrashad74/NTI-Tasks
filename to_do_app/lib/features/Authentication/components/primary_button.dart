@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:to_do_app/utils/app_colors.dart';
-import 'package:to_do_app/utils/app_constants.dart';
+import 'package:to_do_app/core/utils/app_colors.dart';
+import 'package:to_do_app/core/utils/app_constants.dart';
 
 class PrimaryButton extends StatefulWidget {
   final String? text;
+  final VoidCallback? onPressed;
 
-  const PrimaryButton({super.key, required this.text});
+  const PrimaryButton({super.key, required this.text, this.onPressed});
 
   @override
   State<PrimaryButton> createState() => _PrimaryButtonState();
@@ -15,7 +16,7 @@ class _PrimaryButtonState extends State<PrimaryButton> {
   @override
   Widget build(BuildContext context) {
     return ElevatedButton(
-      onPressed: () {},
+      onPressed: widget.onPressed,
       child: Text(
         "${widget.text}",
         style: const TextStyle(

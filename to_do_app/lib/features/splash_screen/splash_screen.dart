@@ -2,12 +2,12 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:to_do_app/utils/app_assets.dart';
-import 'package:to_do_app/utils/app_colors.dart';
-import 'package:to_do_app/utils/app_constants.dart';
-import 'package:to_do_app/utils/app_text.dart';
+import 'package:to_do_app/core/utils/app_assets.dart';
+import 'package:to_do_app/core/utils/app_colors.dart';
+import 'package:to_do_app/core/utils/app_constants.dart';
+import 'package:to_do_app/core/utils/app_text.dart';
 
-import '../../utils/app_routes.dart';
+import '../../core/utils/app_routes.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});
@@ -22,7 +22,7 @@ class _SplashScreenState extends State<SplashScreen> {
     super.initState();
 
     Timer(const Duration(seconds: 4), () {
-      Navigator.pushReplacementNamed(context, AppRoutes.login);
+      Navigator.pushReplacementNamed(context, AppRoutes.startScreen);
     });
   }
 
@@ -43,7 +43,7 @@ class _SplashScreenState extends State<SplashScreen> {
             height: 20,
           ),
           const Text(
-            AppText.todo,
+            AppText.todoTitle,
             style: TextStyle(
               fontSize: 36,
               color: AppColors.primary,

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:to_do_app/utils/app_colors.dart';
-import 'package:to_do_app/utils/app_constants.dart';
+import 'package:to_do_app/core/utils/app_colors.dart';
+import 'package:to_do_app/core/utils/app_constants.dart';
 
 class InputFormField extends StatefulWidget {
   final Widget? startIcon;

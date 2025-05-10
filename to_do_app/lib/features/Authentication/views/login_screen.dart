@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:to_do_app/features/Authentication/components/auth_logo.dart';
 import 'package:to_do_app/features/Authentication/components/login_form.dart';
-import 'package:to_do_app/utils/app_colors.dart';
+import 'package:to_do_app/core/utils/app_colors.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});

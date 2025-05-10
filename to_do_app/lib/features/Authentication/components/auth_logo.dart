@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:to_do_app/utils/app_assets.dart';
+import 'package:to_do_app/core/utils/app_assets.dart';
 
-import '../../../utils/app_colors.dart';
+import '../../../core/utils/app_colors.dart';
 
 class AuthLogo extends StatelessWidget {
   const AuthLogo({super.key});

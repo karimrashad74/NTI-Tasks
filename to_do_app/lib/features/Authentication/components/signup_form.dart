@@ -5,10 +5,10 @@ import 'package:to_do_app/features/Authentication/components/auth_text_link.dart
 import 'package:to_do_app/features/Authentication/components/input_form_field.dart';
 import 'package:to_do_app/features/Authentication/components/pass_field.dart';
 import 'package:to_do_app/features/Authentication/components/primary_button.dart';
-import 'package:to_do_app/utils/app_routes.dart';
+import 'package:to_do_app/core/utils/app_routes.dart';
 
-import '../../../utils/app_assets.dart';
-import '../../../utils/app_text.dart';
+import '../../../core/utils/app_assets.dart';
+import '../../../core/utils/app_text.dart';
 
 class SignupForm extends StatefulWidget {
   const SignupForm({super.key});
@@ -26,20 +26,25 @@ class _SignupFormState extends State<SignupForm> {
       child: Column(
         children: [
           InputFormField(
-            startIcon: SvgPicture.asset(AppAssets.profile),
-            hintText: AppText.userName,
+            startIcon:
+                SvgPicture.asset(AppAssets.profile, width: 24, height: 24),
+            hintText: AppText.usernameLabel,
           ),
           PassField(
-            startIcon: SvgPicture.asset(AppAssets.password),
-            hintText: AppText.password,
-            endIcon: SvgPicture.asset(AppAssets.lock),
-            endIconSwitch: SvgPicture.asset(AppAssets.unLock),
+            startIcon:
+                SvgPicture.asset(AppAssets.password, width: 24, height: 24),
+            hintText: AppText.passwordHint,
+            endIcon: SvgPicture.asset(AppAssets.lock, width: 24, height: 24),
+            endIconSwitch:
+                SvgPicture.asset(AppAssets.unLock, width: 24, height: 24),
           ),
           PassField(
-            startIcon: SvgPicture.asset(AppAssets.password),
-            hintText: AppText.confirmPassword,
-            endIcon: SvgPicture.asset(AppAssets.lock),
-            endIconSwitch: SvgPicture.asset(AppAssets.unLock),
+            startIcon:
+                SvgPicture.asset(AppAssets.password, width: 24, height: 24),
+            hintText: AppText.confirmPasswordHint,
+            endIcon: SvgPicture.asset(AppAssets.lock, width: 24, height: 24),
+            endIconSwitch:
+                SvgPicture.asset(AppAssets.unLock, width: 24, height: 24),
           ),
 
           // DropdownButtonFormField(items: [
@@ -53,11 +58,14 @@ class _SignupFormState extends State<SignupForm> {
           //   ),
           // ], onChanged: (value) {}),
 
-          PrimaryButton(text: AppText.signUp),
+          PrimaryButton(
+            text: AppText.signUpButton,
+            onPressed: () {},
+          ),
           // SizedBox(height: 10),
           AuthTextLink(
-            firstText: AppText.alreadyHaveAccount,
-            secondText: AppText.login,
+            firstText: AppText.alreadyHaveAccountText,
+            secondText: AppText.loginButton,
             onTap: () {
               Navigator.pushNamed(context, AppRoutes.login);
             },
