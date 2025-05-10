@@ -79,6 +79,7 @@ class SignupForm extends StatelessWidget {
             ),
             PrimaryButton(
               text: AppStrings.signUpButton,
+              isLoading: true,
               onPressed: () {
                 if (signupFormKey.currentState!.validate()) {
                   Navigator.pushNamed(context, AppRoutes.home);

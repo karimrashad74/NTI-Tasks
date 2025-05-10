@@ -5,13 +5,23 @@ import 'package:to_do_app/core/utils/app_constants.dart';
 class PrimaryButton extends StatelessWidget {
   final String? text;
   final VoidCallback? onPressed;
+  final bool isLoading;
+  final bool isDisabled;
 
-  const PrimaryButton({super.key, required this.text, this.onPressed});
+  const PrimaryButton({
+    super.key,
+    required this.text,
+    this.onPressed,
+    this.isLoading = false,
+    this.isDisabled = false,
+  });
 
   @override
   Widget build(BuildContext context) {
+    final bool shouldDisable = isDisabled || isLoading;
+
     return ElevatedButton(
-      onPressed: onPressed,
+      onPressed: shouldDisable ? null : onPressed,
       style: ElevatedButton.styleFrom(
         backgroundColor: AppColors.primary,
         shadowColor: AppColors.primary,
@@ -21,18 +31,27 @@ class PrimaryButton extends StatelessWidget {
         ),
         minimumSize: Size(
           MediaQuery.of(context).size.width * 0.88,
-          MediaQuery.of(context).size.height * 0.0591133004926108,
+          MediaQuery.of(context).size.height * 0.0591,
         ),
       ),
-      child: Text(
-        "$text",
-        style: const TextStyle(
-          color: AppColors.white,
-          fontSize: 19,
-          fontFamily: AppConstants.fontFamily,
-          fontWeight: FontWeight.w300,
-        ),
-      ),
+      child: isLoading
+          ? const SizedBox(
+              width: 24,
+              height: 24,
+              child: CircularProgressIndicator(
+                color: AppColors.primary,
+                strokeWidth: 2.5,
+              ),
+            )
+          : Text(
+              "$text",
+              style: const TextStyle(
+                color: AppColors.white,
+                fontSize: 19,
+                fontFamily: AppConstants.fontFamily,
+                fontWeight: FontWeight.w300,
+              ),
+            ),
     );
   }
 }

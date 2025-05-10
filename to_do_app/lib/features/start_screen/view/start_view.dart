@@ -9,8 +9,15 @@ import 'package:to_do_app/features/Authentication/components/primary_button.dart
 
 import '../../../config/cache/cache_helper.dart';
 
-class StartView extends StatelessWidget {
+class StartView extends StatefulWidget {
   const StartView({super.key});
+
+  @override
+  State<StartView> createState() => _StartViewState();
+}
+
+class _StartViewState extends State<StartView> {
+  bool isSubmitting = false;
 
   @override
   Widget build(BuildContext context) {
@@ -48,11 +55,15 @@ class StartView extends StatelessWidget {
             ),
             const SizedBox(height: 20),
             PrimaryButton(
-                text: AppStrings.letsStartButton,
-                onPressed: () async {
-                  await CacheHelper.set(key: 'start_view_shown', value: true);
-                  Navigator.pushReplacementNamed(context, AppRoutes.login);
-                }),
+              text: AppStrings.letsStartButton,
+              isLoading: isSubmitting,
+              isDisabled: false,
+              onPressed: () async {
+                setState(() => isSubmitting = true);
+                await CacheHelper.set(key: 'start_view_shown', value: true);
+                Navigator.pushReplacementNamed(context, AppRoutes.login);
+              },
+            ),
           ],
         ),
       ),

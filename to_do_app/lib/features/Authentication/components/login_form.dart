@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:to_do_app/core/localisation/app_strings.dart';
 import 'package:to_do_app/features/Authentication/components/auth_text_link.dart';
 import 'package:to_do_app/features/Authentication/components/input_form_field.dart';
 import 'package:to_do_app/features/Authentication/components/pass_field.dart';
 import 'package:to_do_app/features/Authentication/components/primary_button.dart';
-import 'package:to_do_app/core/localisation/app_strings.dart';
+
 import '../../../core/utils/app_assets.dart';
 import '../../../core/utils/app_routes.dart';
 import '../view_model/login_cubit/login_cubit.dart';
@@ -73,9 +74,8 @@ class LoginForm extends StatelessWidget {
                       SvgPicture.asset(AppAssets.unLock, width: 24, height: 24),
                 ),
                 PrimaryButton(
-                  text: state is LoginLoading
-                      ? AppStrings.loggingIn
-                      : AppStrings.loginButton,
+                  text: AppStrings.loginButton,
+                  isLoading: state is LoginLoading,
                   onPressed: state is LoginLoading ? null : () => cubit.login(),
                 ),
                 SizedBox(height: 50),
