@@ -7,6 +7,7 @@ import 'package:to_do_app/core/utils/app_colors.dart';
 import 'package:to_do_app/core/utils/app_constants.dart';
 import 'package:to_do_app/core/localisation/app_strings.dart';
 
+import '../../../config/cache/cache_helper.dart';
 import '../../../core/utils/app_routes.dart';
 
 class SplashView extends StatefulWidget {
@@ -22,7 +23,13 @@ class _SplashScreenState extends State<SplashView> {
     super.initState();
 
     Timer(const Duration(seconds: 4), () {
-      Navigator.pushReplacementNamed(context, AppRoutes.startScreen);
+      bool? isStartViewShown = CacheHelper.getBool(key: 'start_view_shown');
+
+      if (isStartViewShown == true) {
+        Navigator.pushReplacementNamed(context, AppRoutes.login);
+      } else {
+        Navigator.pushReplacementNamed(context, AppRoutes.startScreen);
+      }
     });
   }
 

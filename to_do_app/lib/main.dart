@@ -1,12 +1,16 @@
 import 'package:flutter/material.dart';
+import 'package:to_do_app/config/cache/cache_helper.dart';
+import 'package:to_do_app/core/utils/app_routes.dart';
 import 'package:to_do_app/features/Authentication/views/login_view.dart';
 import 'package:to_do_app/features/Authentication/views/signup_view.dart';
+import 'package:to_do_app/features/home/views/home_view.dart';
 import 'package:to_do_app/features/splash_screen/view/splash_view.dart';
 import 'package:to_do_app/features/start_screen/view/start_view.dart';
-import 'package:to_do_app/features/home/views/home_view.dart';
-import 'package:to_do_app/core/utils/app_routes.dart';
 
-void main() {
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+
+  await CacheHelper.init();
   runApp(const MainApp());
 }
 

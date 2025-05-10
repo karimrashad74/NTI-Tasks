@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:to_do_app/features/Authentication/components/primary_button.dart';
+import 'package:to_do_app/core/localisation/app_strings.dart';
 import 'package:to_do_app/core/utils/app_assets.dart';
 import 'package:to_do_app/core/utils/app_colors.dart';
 import 'package:to_do_app/core/utils/app_constants.dart';
 import 'package:to_do_app/core/utils/app_routes.dart';
-import 'package:to_do_app/core/localisation/app_strings.dart';
+import 'package:to_do_app/features/Authentication/components/primary_button.dart';
+
+import '../../../config/cache/cache_helper.dart';
 
 class StartView extends StatelessWidget {
   const StartView({super.key});
@@ -47,8 +49,9 @@ class StartView extends StatelessWidget {
             const SizedBox(height: 20),
             PrimaryButton(
                 text: AppStrings.letsStartButton,
-                onPressed: () {
-                  Navigator.pushNamed(context, AppRoutes.login);
+                onPressed: () async {
+                  await CacheHelper.set(key: 'start_view_shown', value: true);
+                  Navigator.pushReplacementNamed(context, AppRoutes.login);
                 }),
           ],
         ),
