@@ -1,12 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:to_do_app/core/utils/app_colors.dart';
-import 'package:to_do_app/core/utils/app_routes.dart';
-import 'package:to_do_app/features/Authentication/components/auth_logo.dart';
-import 'package:to_do_app/features/Authentication/components/login_form.dart';
-import 'package:to_do_app/features/Authentication/view_model/login_cubit/login_state.dart';
 
+import '../../../core/utils/app_colors.dart';
+import '../../../core/utils/app_routes.dart';
+import '../../home/view_model/user_cubit/user_cubit.dart';
 import '../view_model/login_cubit/login_cubit.dart';
+import '../view_model/login_cubit/login_state.dart';
+import 'components/auth_logo.dart';
+import 'components/login_form.dart';
 
 class LoginView extends StatelessWidget {
   const LoginView({super.key});
@@ -26,16 +27,17 @@ class LoginView extends StatelessWidget {
                   return LoginForm();
                 }, listener: (context, state) {
                   if (state is LoginSuccess) {
-                    Navigator.pushNamed(context, AppRoutes.home);
+                    UserCubit.get(context).getUser(state.userModel);
+                    Navigator.pushReplacementNamed(context, AppRoutes.home);
                   } else if (state is LoginError) {
                     ScaffoldMessenger.of(context).showSnackBar(
                       SnackBar(
-                        content: Text("Error"),
+                        content: Text(state.error),
                         backgroundColor: Colors.red,
                       ),
                     );
                   }
-                })
+                }),
               ],
             ),
           ),

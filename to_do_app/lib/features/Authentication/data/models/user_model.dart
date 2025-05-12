@@ -1,5 +1,6 @@
 class UserModel {
-  String? userName;
-  String? image;
+  final String? userName;
+  final String? image;
+
   UserModel({this.userName, this.image});
 }

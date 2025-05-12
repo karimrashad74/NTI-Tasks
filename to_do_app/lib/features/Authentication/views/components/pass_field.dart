@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:to_do_app/features/Authentication/components/input_form_field.dart';
+import 'package:to_do_app/features/Authentication/views/components/input_form_field.dart';
 
-import '../view_model/password_cubit/password_cubit.dart';
+import '../../view_model/password_cubit/password_cubit.dart';
 
 class PassField extends StatelessWidget {
   final Widget? startIcon;

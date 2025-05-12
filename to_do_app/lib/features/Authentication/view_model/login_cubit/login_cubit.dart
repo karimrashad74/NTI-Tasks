@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:to_do_app/core/utils/app_assets.dart';
+
+import '../../data/models/user_model.dart';
 import 'login_state.dart';
 
 class LoginCubit extends Cubit<LoginState> {
@@ -12,7 +15,10 @@ class LoginCubit extends Cubit<LoginState> {
   final passwordController = TextEditingController();
 
   void login() async {
-    if (!formKey.currentState!.validate()) return;
+    if (!formKey.currentState!.validate()) {
+      emit(LoginError('Please enter valid data'));
+      return;
+    }
 
     emit(LoginLoading());
     await Future.delayed(Duration(seconds: 2));
@@ -20,10 +26,19 @@ class LoginCubit extends Cubit<LoginState> {
     final username = usernameController.text;
     final password = passwordController.text;
 
-    if (username == 'admin' && password == '123456') {
-      emit(LoginSuccess());
+    RegExp usernameRegex = RegExp(r'^[a-zA-Z0-9_-]+$');
+    RegExp passwordRegex = RegExp(
+        r'^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[!@#\$%^&*()_\-+=\[\]{};:"\\|,.<>\/?]).{6,}$');
+
+    if (usernameRegex.hasMatch(username) && passwordRegex.hasMatch(password)) {
+      UserModel user = UserModel(userName: username, image: AppAssets.logo);
+      emit(LoginSuccess(user));
     } else {
-      emit(LoginError('Invalid username or password'));
+      if (!usernameRegex.hasMatch(username)) {
+        emit(LoginError('Invalid username format'));
+      } else if (!passwordRegex.hasMatch(password)) {
+        emit(LoginError('Invalid password format'));
+      }
     }
   }
 

@@ -3,15 +3,15 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:to_do_app/core/localisation/app_strings.dart';
 import 'package:to_do_app/core/widgets/primary_button.dart';
-import 'package:to_do_app/features/Authentication/components/auth_text_link.dart';
-import 'package:to_do_app/features/Authentication/components/input_form_field.dart';
-import 'package:to_do_app/features/Authentication/components/pass_field.dart';
+import 'package:to_do_app/features/Authentication/views/components/auth_text_link.dart';
+import 'package:to_do_app/features/Authentication/views/components/input_form_field.dart';
+import 'package:to_do_app/features/Authentication/views/components/pass_field.dart';
 
-import '../../../core/utils/app_assets.dart';
-import '../../../core/utils/app_routes.dart';
-import '../view_model/login_cubit/login_cubit.dart';
-import '../view_model/login_cubit/login_state.dart';
-import '../view_model/password_cubit/password_cubit.dart';
+import '../../../../core/utils/app_assets.dart';
+import '../../../../core/utils/app_routes.dart';
+import '../../view_model/login_cubit/login_cubit.dart';
+import '../../view_model/login_cubit/login_state.dart';
+import '../../view_model/password_cubit/password_cubit.dart';
 
 class LoginForm extends StatelessWidget {
   const LoginForm({super.key});
