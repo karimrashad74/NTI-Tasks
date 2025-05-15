@@ -43,7 +43,7 @@ class SplashView extends StatelessWidget {
                   AppStrings.todoTitle,
                   style: TextStyle(
                     fontSize: 36,
-                    color: AppColors.primary,
+                    color: AppColors.primaryColor,
                     fontFamily: AppConstants.fontFamily,
                     fontWeight: FontWeight.w900,
                   ),

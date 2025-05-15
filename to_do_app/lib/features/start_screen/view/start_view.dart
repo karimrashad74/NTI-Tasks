@@ -5,9 +5,9 @@ import 'package:to_do_app/core/utils/app_assets.dart';
 import 'package:to_do_app/core/utils/app_colors.dart';
 import 'package:to_do_app/core/utils/app_constants.dart';
 import 'package:to_do_app/core/utils/app_routes.dart';
-import 'package:to_do_app/core/widgets/primary_button.dart';
 
 import '../../../config/cache/cache_helper.dart';
+import '../../../core/widgets/primary_button.dart';
 
 class StartView extends StatefulWidget {
   const StartView({super.key});
@@ -54,13 +54,14 @@ class _StartViewState extends State<StartView> {
               ),
             ),
             const SizedBox(height: 20),
-            PrimaryButton(
+            primaryColorButton(
               text: AppStrings.letsStartButton,
               isLoading: isSubmitting,
               isDisabled: false,
               onPressed: () async {
                 setState(() => isSubmitting = true);
-                await CacheHelper.set(key: 'start_view_shown', value: true);
+                await CacheHelper.saveData(
+                    key: 'start_view_shown', value: true);
                 Navigator.pushReplacementNamed(context, AppRoutes.login);
               },
             ),

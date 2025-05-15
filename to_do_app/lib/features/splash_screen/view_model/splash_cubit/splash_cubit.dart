@@ -11,16 +11,16 @@ class SplashCubit extends Cubit<SplashState> {
     emit(SplashLoadingState());
     await Future.delayed(const Duration(seconds: 3));
 
-    bool? isLoggedIn = CacheHelper.getBool(key: 'isLoggedIn');
+    bool? isLoggedIn = CacheHelper.getData(key: 'isLoggedIn');
 
     if (isLoggedIn == true) {
       emit(SplashNavigateToHome());
     } else {
-      bool? isStartViewShown = CacheHelper.getBool(key: 'start_view_shown');
+      bool? isStartViewShown = CacheHelper.getData(key: 'start_view_shown');
       if (isStartViewShown == true) {
         emit(SplashNavigateToLogin());
       } else {
-        await CacheHelper.set(key: 'start_view_shown', value: true);
+        await CacheHelper.saveData(key: 'start_view_shown', value: true);
         emit(SplashNavigateToStart());
       }
     }

@@ -52,7 +52,7 @@ Widget decorationInputField({
         fontWeight: FontWeight.w400,
       ),
       obscureText: obscureText,
-      cursorColor: AppColors.primary,
+      cursorColor: AppColors.primaryColor,
       decoration: InputDecoration(
         filled: true,
         fillColor: AppColors.white,
@@ -68,7 +68,7 @@ Widget decorationInputField({
             ? IconButton(onPressed: onSuffixIconPressed, icon: suffixIcon)
             : null,
         border: decorationBorder(AppColors.lightGrey),
-        focusedBorder: decorationBorder(AppColors.primary),
+        focusedBorder: decorationBorder(AppColors.primaryColor),
         errorBorder: decorationBorder(AppColors.errorColor),
       ),
     ),

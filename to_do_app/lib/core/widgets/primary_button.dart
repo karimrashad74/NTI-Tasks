@@ -2,13 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:to_do_app/core/utils/app_colors.dart';
 import 'package:to_do_app/core/utils/app_constants.dart';
 
-class PrimaryButton extends StatelessWidget {
+class primaryColorButton extends StatelessWidget {
   final String? text;
   final VoidCallback? onPressed;
   final bool isLoading;
   final bool isDisabled;
 
-  const PrimaryButton({
+  const primaryColorButton({
     super.key,
     required this.text,
     this.onPressed,
@@ -23,8 +23,8 @@ class PrimaryButton extends StatelessWidget {
     return ElevatedButton(
       onPressed: shouldDisable ? null : onPressed,
       style: ElevatedButton.styleFrom(
-        backgroundColor: AppColors.primary,
-        shadowColor: AppColors.primary,
+        backgroundColor: AppColors.primaryColor,
+        shadowColor: AppColors.primaryColor,
         elevation: 15,
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(14),
@@ -39,7 +39,7 @@ class PrimaryButton extends StatelessWidget {
               width: 24,
               height: 24,
               child: CircularProgressIndicator(
-                color: AppColors.primary,
+                color: AppColors.primaryColor,
                 strokeWidth: 2.5,
               ),
             )

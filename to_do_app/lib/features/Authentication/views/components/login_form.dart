@@ -2,13 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:to_do_app/core/localisation/app_strings.dart';
-import 'package:to_do_app/core/widgets/primary_button.dart';
 import 'package:to_do_app/features/Authentication/views/components/auth_text_link.dart';
 import 'package:to_do_app/features/Authentication/views/components/input_form_field.dart';
 import 'package:to_do_app/features/Authentication/views/components/pass_field.dart';
 
 import '../../../../core/utils/app_assets.dart';
 import '../../../../core/utils/app_routes.dart';
+import '../../../../core/widgets/primary_button.dart';
 import '../../view_model/login_cubit/login_cubit.dart';
 import '../../view_model/login_cubit/login_state.dart';
 import '../../view_model/password_cubit/password_cubit.dart';
@@ -73,7 +73,7 @@ class LoginForm extends StatelessWidget {
                   endIconSwitch:
                       SvgPicture.asset(AppAssets.unLock, width: 24, height: 24),
                 ),
-                PrimaryButton(
+                primaryColorButton(
                   text: AppStrings.loginButton,
                   isLoading: state is LoginLoading,
                   onPressed: state is LoginLoading ? null : () => cubit.login(),

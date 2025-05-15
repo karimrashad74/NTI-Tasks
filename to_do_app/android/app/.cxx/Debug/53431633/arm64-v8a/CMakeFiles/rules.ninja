@@ -37,9 +37,9 @@ rule CLEAN
 
 
 #############################################
-# Rule for printing all primary targets available.
+# Rule for printing all primaryColor targets available.
 
 rule HELP
   command = C:\Android\Sdk\cmake\3.22.1\bin\ninja.exe -t targets
-  description = All primary targets available:
+  description = All primaryColor targets available:
 

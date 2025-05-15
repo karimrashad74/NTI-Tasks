@@ -9,4 +9,7 @@ abstract class AppAssets {
   static const String lock = "${basePathIcons}Lock.svg";
   static const String unLock = "${basePathIcons}Unlock - Iconly Pro.svg";
   static const String addIcon = "${basePathIcons}add_icon.svg";
+  static const String arrowLeft = '${basePathIcons}arrow_left.svg';
+  static const String delete = '${basePathIcons}delete.svg';
+  static const String calender = '${basePathIcons}calendar.svg';
 }

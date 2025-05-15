@@ -77,7 +77,7 @@ class SignupForm extends StatelessWidget {
                 return null;
               },
             ),
-            PrimaryButton(
+            primaryColorButton(
               text: AppStrings.signUpButton,
               isLoading: true,
               onPressed: () {

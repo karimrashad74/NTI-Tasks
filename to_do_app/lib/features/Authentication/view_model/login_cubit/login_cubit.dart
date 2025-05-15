@@ -33,8 +33,8 @@ class LoginCubit extends Cubit<LoginState> {
 
     if (usernameRegex.hasMatch(username) && passwordRegex.hasMatch(password)) {
       UserModel user = UserModel(userName: username, image: AppAssets.logo);
-      await CacheHelper.set(key: 'isLoggedIn', value: true);
-      await CacheHelper.set(key: 'username', value: username);
+      await CacheHelper.saveData(key: 'isLoggedIn', value: true);
+      await CacheHelper.saveData(key: 'username', value: username);
       emit(LoginSuccess(user));
     } else {
       if (!usernameRegex.hasMatch(username)) {

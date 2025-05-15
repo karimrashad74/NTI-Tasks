@@ -100,7 +100,7 @@ build clean: CLEAN
 
 
 #############################################
-# Print all primary targets available.
+# Print all primaryColor targets available.
 
 build help: HELP
 
